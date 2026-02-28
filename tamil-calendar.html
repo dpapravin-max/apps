@@ -147,6 +147,7 @@
   .event-pill .ev-icon{width:50px;height:50px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0}
   .event-pill .ev-name{font-size:17px;font-weight:700}
   .event-pill .ev-ta{font-size:14px;color:var(--tamil);margin-top:2px;font-weight:500}
+  .event-pill .ev-img{width:100%;border-radius:12px;margin-top:10px;box-shadow:0 4px 20px rgba(0,0,0,0.4);border:1px solid rgba(232,117,26,0.15);max-height:300px;object-fit:cover}
 
   /* TIMING CARD */
   .timing-card{flex:1;border-radius:16px;padding:18px 14px;text-align:center}
@@ -278,7 +279,7 @@ const FESTIVALS={
   "2025-02-12":[{n:"மாசி மகம்",e:"Maasi Magam",t:"major",i:"🛕"}],
   "2025-02-26":[{n:"மகா சிவராத்திரி",e:"Maha Shivaratri",t:"major",i:"🙏"}],
   "2025-03-14":[{n:"ஹோலி",e:"Holi",t:"major",i:"🎨"}],
-  "2025-03-30":[{n:"பங்குனி உத்திரம்",e:"Panguni Uthiram",t:"major",i:"💒"}],
+  "2025-03-30":[{n:"பங்குனி உத்திரம்",e:"Panguni Uthiram",t:"major",i:"🙏",img:"muruga.jpg"}],
   "2025-04-06":[{n:"ராம நவமி",e:"Rama Navami",t:"major",i:"🏹"}],
   "2025-04-14":[{n:"தமிழ் புத்தாண்டு",e:"Tamil New Year (Puthandu)",t:"major",i:"🎊"},{n:"விஷு",e:"Vishu",t:"festival",i:"🌻"}],
   "2025-05-12":[{n:"அக்ஷய திருதியை",e:"Akshaya Tritiya",t:"major",i:"💰"}],
@@ -305,7 +306,7 @@ const FESTIVALS={
   "2026-01-18":[{n:"தைப்பூசம்",e:"Thaipusam",t:"major",i:"🪔"}],
   "2026-02-01":[{n:"மாசி மகம்",e:"Maasi Magam",t:"major",i:"🛕"}],
   "2026-02-15":[{n:"மகா சிவராத்திரி",e:"Maha Shivaratri",t:"major",i:"🙏"}],
-  "2026-02-28":[{n:"பங்குனி உத்திரம்",e:"Panguni Uthiram",t:"major",i:"💒"}],
+  "2026-02-28":[{n:"பங்குனி உத்திரம்",e:"Panguni Uthiram",t:"major",i:"🙏",img:"muruga.jpg"}],
   "2026-03-04":[{n:"ஹோலி",e:"Holi",t:"major",i:"🎨"}],
   "2026-03-26":[{n:"ராம நவமி",e:"Rama Navami",t:"major",i:"🏹"}],
   "2026-04-14":[{n:"தமிழ் புத்தாண்டு",e:"Tamil New Year",t:"major",i:"🎊"}],
@@ -508,9 +509,10 @@ function render() {
       html += `<div class="section">
         <div class="section-head"><span class="icon">🪔</span><div><div class="title">Today's Events</div><div class="title-ta">இன்றைய நிகழ்வுகள்</div></div></div>
         <div class="section-body">${allEv.map(ev => `
-          <div class="event-pill" style="background:linear-gradient(135deg,${typeColor(ev.t)}0D,${typeColor(ev.t)}06);border:1px solid ${typeColor(ev.t)}22;margin-bottom:8px">
+          <div class="event-pill" style="background:linear-gradient(135deg,${typeColor(ev.t)}0D,${typeColor(ev.t)}06);border:1px solid ${typeColor(ev.t)}22;margin-bottom:8px;${ev.img?'flex-wrap:wrap':''}">
             <div class="ev-icon" style="background:${typeColor(ev.t)}18">${ev.i}</div>
             <div><div class="ev-name" style="color:${typeColor(ev.t)}">${ev.e}</div><div class="ev-ta">${ev.n}</div></div>
+            ${ev.img?`<img class="ev-img" src="${ev.img}" alt="" onerror="this.style.display='none'">`:''}
           </div>`).join('')}
         </div></div>`;
     }
@@ -520,9 +522,10 @@ function render() {
       html += `<div class="section">
         <div class="section-head"><span class="icon">📜</span><div><div class="title">${MONTH_NAMES[cMonth]} Events</div><div class="title-ta">இந்த மாத நிகழ்வுகள்</div></div></div>
         <div class="section-body">${monthEvents.map(f => `
-          <button class="month-ev-btn" onclick="selectDay(${f.day})">
+          <button class="month-ev-btn" onclick="selectDay(${f.day})" style="${f.img?'flex-wrap:wrap':''}">
             <div class="mev-left"><span class="mev-icon">${f.i}</span><div><div class="mev-name" style="color:${typeColor(f.t)}">${f.e}</div><div class="mev-ta">${f.n}</div></div></div>
             <div class="mev-day">${f.day}</div>
+            ${f.img?`<img class="ev-img" src="${f.img}" alt="" onerror="this.style.display='none'" style="margin-top:8px">`:''}
           </button>`).join('')}
         </div></div>`;
     }
@@ -553,9 +556,10 @@ function render() {
       html += `<div class="section">
         <div class="section-head"><span class="icon">🪔</span><div><div class="title">Events</div><div class="title-ta">நிகழ்வுகள்</div></div></div>
         <div class="section-body">${allEv.map(ev => `
-          <div class="event-pill" style="background:linear-gradient(135deg,${typeColor(ev.t)}0D,${typeColor(ev.t)}06);border:1px solid ${typeColor(ev.t)}22;margin-bottom:8px">
+          <div class="event-pill" style="background:linear-gradient(135deg,${typeColor(ev.t)}0D,${typeColor(ev.t)}06);border:1px solid ${typeColor(ev.t)}22;margin-bottom:8px;${ev.img?'flex-wrap:wrap':''}">
             <div class="ev-icon" style="background:${typeColor(ev.t)}18">${ev.i}</div>
             <div><div class="ev-name" style="color:${typeColor(ev.t)}">${ev.e}</div><div class="ev-ta">${ev.n}</div></div>
+            ${ev.img?`<img class="ev-img" src="${ev.img}" alt="" onerror="this.style.display='none'">`:''}
           </div>`).join('')}
         </div></div>`;
     }
