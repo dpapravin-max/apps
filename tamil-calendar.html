@@ -48,9 +48,10 @@
   /* HEADER */
   .header{padding:24px 20px 20px;text-align:center;border-bottom:1px solid var(--card-border);
     background:linear-gradient(180deg,rgba(232,117,26,0.05) 0%,transparent 100%)}
-  .header .ornament{display:flex;justify-content:center;gap:8px;margin-bottom:12px}
-  .header .ornament span{font-size:10px;color:var(--text-muted);opacity:.4}
+  .header .ornament{display:flex;justify-content:center;gap:8px;margin-bottom:12px;align-items:center}
+  .header .ornament span{font-size:11px;color:var(--gold);opacity:.5}
   .header .ornament .center{font-size:18px;color:var(--saffron);opacity:1}
+  .header .ornament .lotus{font-size:22px;opacity:1;filter:brightness(1.4) saturate(1.8);animation:softPulse 3s ease-in-out infinite}
   .header .year-label{font-size:20px;font-weight:700;color:var(--saffron);letter-spacing:3px;text-transform:uppercase}
   .header .month-sub{font-size:17px;color:var(--tamil);margin-top:6px;letter-spacing:1px;font-weight:600}
 
@@ -198,6 +199,7 @@
     .container{padding:0 8px 80px}
     .header .year-label{font-size:22px}
     .header .month-sub{font-size:19px}
+    .header .ornament .lotus{font-size:26px}
     .month-nav .month-title{font-size:30px}
     .month-nav .month-year{font-size:17px}
     .nav-btn{padding:14px 22px;font-size:20px}
@@ -267,10 +269,10 @@ const KARANAMS=["பவம்","பாலவம்","கௌலவம்","தை
 const KARANAMS_EN=["Bavam","Balavam","Kaulavam","Thaithulam","Garam","Vanijam","Vishti","Saguni","Chatushpadam","Nagam","Kimstugnam"];
 const TAMIL_YEARS=["பிரபவ","விபவ","சுக்ல","பிரமோதூத","பிரசோற்பத்தி","ஆங்கீரச","ஸ்ரீமுக","பவ","யுவ","தாது","ஈஸ்வர","வெகுதான்ய","பிரமாதி","விக்ரம","விஷு","சித்திரபானு","சுபானு","தாரண","பார்த்திப","விய","சர்வசித்து","சர்வதாரி","விரோதி","விக்ருதி","கர","நந்தன","விஜய","ஜய","மன்மத","துர்முகி","ஹேவிளம்பி","விளம்பி","விகாரி","சார்வரி","பிலவ","சுபகிருது","சோபகிருது","குரோதி","விசுவாசுவ","பராபவ","பிலவங்க","கீலக","சௌமிய","சாதாரண","விரோதகிருது","பரிதாபி","பிரமாதீச","ஆனந்த","ராட்சச","நள","பிங்கள","காளயுக்தி","சித்தார்த்தி","ரௌத்ரி","துன்மதி","துந்துபி","ருத்ரோத்காரி","ரக்தாட்சி","குரோதன","அட்சய"];
 
-const RAHU=["4:30–6:00 PM","7:30–9:00 AM","3:00–4:30 PM","12:00–1:30 PM","1:30–3:00 PM","10:30–12:00 PM","9:00–10:30 AM"];
-const YAMA=["12:00–1:30 PM","10:30–12:00 PM","9:00–10:30 AM","7:30–9:00 AM","6:00–7:30 AM","3:00–4:30 PM","1:30–3:00 PM"];
-const GULI=["3:00–4:30 PM","1:30–3:00 PM","12:00–1:30 PM","10:30–12:00 PM","9:00–10:30 AM","7:30–9:00 AM","6:00–7:30 AM"];
-const SUN_DATA=[{r:"6:26",s:"5:52"},{r:"6:24",s:"6:09"},{r:"6:10",s:"6:18"},{r:"5:53",s:"6:24"},{r:"5:42",s:"6:32"},{r:"5:42",s:"6:39"},{r:"5:50",s:"6:40"},{r:"5:54",s:"6:28"},{r:"5:53",s:"6:06"},{r:"5:54",s:"5:45"},{r:"6:02",s:"5:35"},{r:"6:16",s:"5:38"}];
+const RAHU=["5:30–7:00 PM","8:30–10:00 AM","4:00–5:30 PM","1:00–2:30 PM","2:30–4:00 PM","11:30–1:00 PM","10:00–11:30 AM"];
+const YAMA=["1:00–2:30 PM","11:30–1:00 PM","10:00–11:30 AM","8:30–10:00 AM","7:00–8:30 AM","4:00–5:30 PM","2:30–4:00 PM"];
+const GULI=["4:00–5:30 PM","2:30–4:00 PM","1:00–2:30 PM","11:30–1:00 PM","10:00–11:30 AM","8:30–10:00 AM","7:00–8:30 AM"];
+const SUN_DATA=[{r:"7:06",s:"7:10"},{r:"7:06",s:"7:16"},{r:"7:00",s:"7:15"},{r:"6:52",s:"7:12"},{r:"6:50",s:"7:12"},{r:"6:53",s:"7:14"},{r:"6:57",s:"7:14"},{r:"6:56",s:"7:06"},{r:"6:46",s:"6:52"},{r:"6:36",s:"6:41"},{r:"6:33",s:"6:36"},{r:"6:41",s:"6:44"}];
 
 const FESTIVALS={
   "2025-01-14":[{n:"பொங்கல்",e:"Pongal",t:"major",i:"🌾"}],
@@ -414,9 +416,9 @@ function render() {
   html += `
   <div class="header">
     <div class="ornament">
-      <span>🪷</span><span>◈</span><span>◈</span><span>◈</span>
+      <span class="lotus">🪷</span><span>◈</span><span>◈</span><span>◈</span>
       <span class="center">🕉️</span>
-      <span>◈</span><span>◈</span><span>◈</span><span>🪷</span>
+      <span>◈</span><span>◈</span><span>◈</span><span class="lotus">🪷</span>
     </div>
     <div class="year-label">${tYear} வருடம்</div>
     <div class="month-sub">${TAMIL_MONTHS[headerTMon]} • ${TAMIL_MONTHS_EN[headerTMon]}</div>
@@ -597,7 +599,7 @@ function render() {
       </div></div>`;
 
     // Source
-    html += `<div class="note-box"><strong>ℹ️ Data Sources:</strong> Moon phase from synodic cycle (29.53 days). Tithi, Nakshatra, Yogam & Karanam are approximate algorithmic derivations. Festival dates curated for 2025–2026. Timings for Chennai, TN. For precise muhurtam, consult Pambu or Vakya Panchangam.</div>`;
+    html += `<div class="note-box"><strong>ℹ️ Data Sources:</strong> Moon phase from synodic cycle (29.53 days). Tithi, Nakshatra, Yogam & Karanam are approximate algorithmic derivations. Festival dates curated for 2025–2026. Timings for Singapore. For precise muhurtam, consult Pambu or Vakya Panchangam.</div>`;
     html += '</div>';
   }
 
@@ -619,7 +621,7 @@ function render() {
             <div class="tc-time" style="color:#EF5350">${sun.s} PM</div>
           </div>
         </div>
-        <div style="font-size:13px;color:var(--text-muted);text-align:center;margin-top:10px">📍 Based on Chennai, Tamil Nadu</div>
+        <div style="font-size:13px;color:var(--text-muted);text-align:center;margin-top:10px">📍 Based on Singapore</div>
       </div></div>`;
 
     // Auspicious
@@ -630,7 +632,7 @@ function render() {
           <div style="font-size:24px">✨</div>
           <div style="font-size:16px;color:#8BC34A;font-weight:700;margin-top:6px">Abhijit Muhurtam</div>
           <div style="font-size:14px;color:var(--tamil)">அபிஜித் முஹூர்த்தம்</div>
-          <div style="font-size:26px;font-weight:800;color:#8BC34A;margin-top:10px;font-family:'JetBrains Mono',monospace">11:45 AM – 12:33 PM</div>
+          <div style="font-size:26px;font-weight:800;color:#8BC34A;margin-top:10px;font-family:'JetBrains Mono',monospace">12:00 PM – 12:48 PM</div>
           <div style="font-size:14px;color:var(--text-muted);margin-top:8px">Most auspicious time — suitable for all good beginnings</div>
         </div>
       </div></div>`;
