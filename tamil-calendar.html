@@ -19,6 +19,8 @@
     --text-primary: #F5E6D3;
     --text-secondary: rgba(245,230,211,0.55);
     --text-muted: rgba(245,230,211,0.3);
+    --tamil: #F6C67A;
+    --tamil-bright: #FADA9E;
     --green: #5B8C3E;
     --green-light: #8BC34A;
     --danger: #E74C3C;
@@ -30,6 +32,7 @@
     color: var(--text-primary);
     font-family: 'Noto Sans Tamil','Noto Sans',sans-serif;
     -webkit-font-smoothing: antialiased;
+    font-size: 16px;
   }
   ::-webkit-scrollbar{width:4px}
   ::-webkit-scrollbar-thumb{background:rgba(232,117,26,0.2);border-radius:4px}
@@ -40,80 +43,84 @@
   @keyframes softPulse{0%,100%{opacity:1}50%{opacity:.65}}
   @keyframes glow{0%,100%{box-shadow:0 0 15px rgba(232,117,26,0.08)}50%{box-shadow:0 0 30px rgba(232,117,26,0.18)}}
 
-  .container{max-width:520px;margin:0 auto;padding:0 14px 80px}
+  .container{max-width:540px;margin:0 auto;padding:0 10px 80px}
 
   /* HEADER */
-  .header{padding:22px 20px 18px;text-align:center;border-bottom:1px solid var(--card-border);
+  .header{padding:24px 20px 20px;text-align:center;border-bottom:1px solid var(--card-border);
     background:linear-gradient(180deg,rgba(232,117,26,0.05) 0%,transparent 100%)}
-  .header .ornament{display:flex;justify-content:center;gap:6px;margin-bottom:10px}
-  .header .ornament span{font-size:8px;color:var(--text-muted);opacity:.4}
-  .header .ornament .center{font-size:14px;color:var(--saffron);opacity:1}
-  .header .year-label{font-size:12px;font-weight:700;color:var(--saffron);letter-spacing:3px;text-transform:uppercase}
-  .header .month-sub{font-size:10px;color:var(--text-muted);margin-top:2px;letter-spacing:1px}
+  .header .ornament{display:flex;justify-content:center;gap:8px;margin-bottom:12px}
+  .header .ornament span{font-size:10px;color:var(--text-muted);opacity:.4}
+  .header .ornament .center{font-size:18px;color:var(--saffron);opacity:1}
+  .header .year-label{font-size:20px;font-weight:700;color:var(--saffron);letter-spacing:3px;text-transform:uppercase}
+  .header .month-sub{font-size:17px;color:var(--tamil);margin-top:6px;letter-spacing:1px;font-weight:600}
 
-  .month-nav{display:flex;align-items:center;justify-content:space-between;margin-top:16px}
-  .month-nav .month-title{font-size:24px;font-weight:800;color:var(--text-primary);letter-spacing:-.5px}
-  .month-nav .month-year{font-size:13px;color:var(--text-secondary);font-weight:500}
+  .month-nav{display:flex;align-items:center;justify-content:space-between;margin-top:18px}
+  .month-nav .month-title{font-size:28px;font-weight:800;color:var(--text-primary);letter-spacing:-.5px}
+  .month-nav .month-year{font-size:16px;color:var(--text-secondary);font-weight:500}
   .nav-btn{background:rgba(245,230,211,0.04);border:1px solid var(--card-border);
-    border-radius:12px;padding:10px 18px;color:var(--saffron-light);font-size:14px;font-weight:700;
+    border-radius:12px;padding:12px 20px;color:var(--saffron-light);font-size:18px;font-weight:700;
     transition:all .2s}
   .nav-btn:hover{background:rgba(245,230,211,0.08);transform:scale(1.05)}
-  .today-btn{margin-top:10px;background:rgba(232,117,26,0.1);border:1px solid rgba(232,117,26,0.25);
-    border-radius:20px;padding:5px 18px;color:var(--saffron-light);font-size:11px;font-weight:700}
+  .today-btn{margin-top:12px;background:rgba(232,117,26,0.1);border:1px solid rgba(232,117,26,0.25);
+    border-radius:20px;padding:8px 22px;color:var(--saffron-light);font-size:14px;font-weight:700}
 
   /* TABS */
-  .tabs{display:flex;gap:3px;margin:14px 0;padding:3px;background:var(--card);border-radius:16px;border:1px solid var(--card-border)}
-  .tab-btn{flex:1;padding:12px 6px;border:none;border-radius:13px;background:transparent;
-    color:var(--text-muted);font-size:11px;font-weight:700;transition:all .2s;text-align:center}
-  .tab-btn:hover{background:rgba(232,117,26,0.08)}
-  .tab-btn.active{background:linear-gradient(135deg,rgba(232,117,26,0.15),rgba(212,168,67,0.08));
-    color:var(--gold-light);box-shadow:0 1px 8px rgba(232,117,26,0.1)}
-  .tab-btn .icon{font-size:16px;margin-bottom:2px}
+  .tabs{display:flex;gap:4px;margin:16px 0;padding:5px;background:var(--card);border-radius:18px;border:1px solid var(--card-border)}
+  .tab-btn{flex:1;padding:16px 8px;border:none;border-radius:14px;background:transparent;
+    color:var(--tamil);font-size:15px;font-weight:700;transition:all .25s;text-align:center}
+  .tab-btn:hover{background:rgba(232,117,26,0.12)}
+  .tab-btn.active{
+    background:linear-gradient(135deg,var(--saffron),var(--vermilion));
+    color:#FFF;
+    box-shadow:0 3px 16px rgba(232,117,26,0.45);
+    text-shadow:0 1px 3px rgba(0,0,0,0.3)}
+  .tab-btn .icon{font-size:22px;margin-bottom:4px;display:block}
 
   /* SELECTED DAY BAR */
-  .sel-bar{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;margin-bottom:14px;
-    background:var(--card);border-radius:16px;border:1px solid var(--card-border)}
-  .sel-bar .arrow{background:none;border:none;color:var(--saffron-light);font-size:18px;padding:4px 8px;border-radius:8px;transition:all .15s}
+  .sel-bar{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;margin-bottom:16px;
+    background:var(--card);border-radius:18px;border:1px solid var(--card-border)}
+  .sel-bar .arrow{background:none;border:none;color:var(--saffron-light);font-size:22px;padding:6px 10px;border-radius:10px;transition:all .15s}
   .sel-bar .arrow:hover{background:rgba(245,230,211,0.06)}
-  .sel-bar .center{display:flex;align-items:center;justify-content:center;gap:10px;flex:1}
-  .sel-bar .eng-date span.num{font-size:30px;font-weight:800;color:var(--gold-light)}
-  .sel-bar .eng-date span.mon{font-size:14px;color:var(--text-secondary);margin-left:6px}
-  .sel-bar .divider{width:1px;height:30px;background:var(--card-border)}
-  .sel-bar .tam-date .main{font-size:14px;font-weight:700;color:var(--saffron-light)}
-  .sel-bar .tam-date .sub{font-size:11px;color:var(--text-muted)}
-  .sel-bar .moon{font-size:28px;margin-left:6px}
+  .sel-bar .center{display:flex;align-items:center;justify-content:center;gap:12px;flex:1;flex-wrap:wrap}
+  .sel-bar .eng-date span.num{font-size:36px;font-weight:800;color:var(--gold-light)}
+  .sel-bar .eng-date span.mon{font-size:17px;color:var(--text-secondary);margin-left:6px}
+  .sel-bar .divider{width:1px;height:36px;background:var(--card-border)}
+  .sel-bar .tam-date .main{font-size:18px;font-weight:700;color:var(--saffron-light)}
+  .sel-bar .tam-date .sub{font-size:14px;color:var(--tamil);font-weight:500}
+  .sel-bar .moon{font-size:34px;margin-left:6px}
 
   /* SECTION CARD */
-  .section{background:var(--card);border-radius:20px;border:1px solid var(--card-border);overflow:hidden;margin-bottom:14px;
+  .section{background:var(--card);border-radius:20px;border:1px solid var(--card-border);overflow:hidden;margin-bottom:16px;
     box-shadow:0 2px 20px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.03)}
-  .section-head{padding:14px 18px 10px;display:flex;align-items:center;gap:10px;
+  .section-head{padding:16px 18px 12px;display:flex;align-items:center;gap:12px;
     border-bottom:1px solid var(--card-border);
     background:linear-gradient(135deg,rgba(232,117,26,0.06),rgba(212,168,67,0.04))}
-  .section-head .icon{font-size:18px}
-  .section-head .title{font-size:13px;font-weight:700;color:var(--gold-light);letter-spacing:.5px}
-  .section-head .title-ta{font-size:10px;color:var(--text-muted);margin-top:1px}
-  .section-body{padding:12px 16px}
+  .section-head .icon{font-size:22px}
+  .section-head .title{font-size:16px;font-weight:700;color:var(--gold-light);letter-spacing:.5px}
+  .section-head .title-ta{font-size:13px;color:var(--tamil);margin-top:2px;font-weight:500}
+  .section-body{padding:14px 16px}
   .section-body.no-pad{padding:0}
 
   /* CALENDAR GRID */
-  .day-headers{display:flex;padding:10px 8px 6px;border-bottom:1px solid var(--card-border)}
+  .day-headers{display:flex;padding:12px 8px 8px;border-bottom:1px solid var(--card-border)}
   .day-headers .dh{flex:1;text-align:center}
-  .day-headers .dh .ta{font-size:10px;font-weight:700;color:var(--text-muted)}
-  .day-headers .dh .en{font-size:8px;color:var(--text-muted);opacity:.5;margin-top:1px}
-  .day-headers .dh.sun .ta{color:var(--vermilion)}
-  .cal-grid{padding:6px 6px 10px}
+  .day-headers .dh .ta{font-size:13px;font-weight:700;color:var(--tamil)}
+  .day-headers .dh .en{font-size:10px;color:var(--tamil);opacity:.85;margin-top:2px;font-weight:600}
+  .day-headers .dh.sun .ta{color:#FF6B6B}
+  .day-headers .dh.sun .en{color:#FF6B6B;opacity:1}
+  .cal-grid{padding:6px 4px 10px}
   .cal-week{display:flex;gap:3px;margin-bottom:3px}
-  .day-cell{flex:1;aspect-ratio:1;border:none;border-radius:12px;padding:1px;
+  .day-cell{flex:1;aspect-ratio:1;border:none;border-radius:12px;padding:2px;
     display:flex;flex-direction:column;align-items:center;justify-content:center;
-    position:relative;transition:all .15s;background:transparent;font-family:inherit}
+    position:relative;transition:all .15s;background:transparent;font-family:inherit;gap:1px}
   .day-cell:hover{background:rgba(232,117,26,0.1);transform:scale(1.05)}
-  .day-cell .num{font-size:14px;font-weight:500;color:var(--text-primary);line-height:1.2}
-  .day-cell .tnum{font-size:8px;color:var(--saffron-light);opacity:.7;font-weight:600;line-height:1}
-  .day-cell .badge{position:absolute;top:1px;right:2px;font-size:7px;line-height:1}
-  .day-cell .dot{position:absolute;bottom:2px;width:4px;height:4px;border-radius:50%;background:var(--saffron)}
+  .day-cell .num{font-size:17px;font-weight:500;color:var(--text-primary);line-height:1.2}
+  .day-cell .tnum{font-size:11px;color:var(--tamil-bright);opacity:.9;font-weight:600;line-height:1}
+  .day-cell .badge{position:absolute;top:2px;right:3px;font-size:9px;line-height:1}
+  .day-cell .dot{position:absolute;bottom:3px;width:5px;height:5px;border-radius:50%;background:var(--saffron)}
   .day-cell.selected{background:linear-gradient(135deg,var(--saffron),var(--vermilion));box-shadow:0 3px 14px rgba(232,117,26,0.4)}
   .day-cell.selected .num{color:#fff;font-weight:800}
-  .day-cell.selected .tnum{color:rgba(255,255,255,.75);opacity:1}
+  .day-cell.selected .tnum{color:rgba(255,255,255,.85);opacity:1}
   .day-cell.today{background:rgba(232,117,26,0.12)}
   .day-cell.today .num{font-weight:800}
   .day-cell.has-fest{background:rgba(212,168,67,0.06)}
@@ -124,66 +131,117 @@
 
   /* INFO ROW */
   .info-row{display:flex;align-items:center;justify-content:space-between;
-    padding:11px 0;border-bottom:1px solid rgba(120,80,40,0.06)}
+    padding:13px 0;border-bottom:1px solid rgba(120,80,40,0.06)}
   .info-row:last-child{border-bottom:none}
-  .info-row .left{display:flex;align-items:center;gap:10px;flex-shrink:0}
-  .info-row .icon-box{width:34px;height:34px;border-radius:10px;
-    display:flex;align-items:center;justify-content:center;font-size:16px}
-  .info-row .label{font-size:12px;font-weight:600;color:var(--text-secondary)}
-  .info-row .label-ta{font-size:10px;color:var(--text-muted)}
+  .info-row .left{display:flex;align-items:center;gap:12px;flex-shrink:0}
+  .info-row .icon-box{width:40px;height:40px;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;font-size:20px}
+  .info-row .label{font-size:15px;font-weight:600;color:var(--text-secondary)}
+  .info-row .label-ta{font-size:13px;color:var(--tamil);font-weight:500}
   .info-row .right{text-align:right;flex:1;margin-left:12px;min-width:0}
-  .info-row .val{font-size:13px;font-weight:700;word-break:break-word}
-  .info-row .val-ta{font-size:10px;color:var(--text-muted);margin-top:1px}
+  .info-row .val{font-size:16px;font-weight:700;word-break:break-word}
+  .info-row .val-ta{font-size:13px;color:var(--tamil);margin-top:2px;font-weight:500}
 
   /* EVENT PILL */
-  .event-pill{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:14px;transition:transform .15s}
-  .event-pill .ev-icon{width:44px;height:44px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
-  .event-pill .ev-name{font-size:15px;font-weight:700}
-  .event-pill .ev-ta{font-size:12px;color:var(--text-muted);margin-top:1px}
+  .event-pill{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:16px;transition:transform .15s}
+  .event-pill .ev-icon{width:50px;height:50px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0}
+  .event-pill .ev-name{font-size:17px;font-weight:700}
+  .event-pill .ev-ta{font-size:14px;color:var(--tamil);margin-top:2px;font-weight:500}
 
   /* TIMING CARD */
-  .timing-card{flex:1;border-radius:14px;padding:14px 12px;text-align:center}
-  .timing-card .tc-icon{font-size:22px;margin-bottom:6px}
-  .timing-card .tc-label{font-size:10px;color:var(--text-muted);line-height:1.3}
-  .timing-card .tc-ta{font-size:9px;color:var(--text-muted);opacity:.6}
-  .timing-card .tc-time{font-size:16px;font-weight:800;margin-top:6px;font-family:'JetBrains Mono',monospace}
+  .timing-card{flex:1;border-radius:16px;padding:18px 14px;text-align:center}
+  .timing-card .tc-icon{font-size:28px;margin-bottom:8px}
+  .timing-card .tc-label{font-size:13px;color:var(--text-muted);line-height:1.3}
+  .timing-card .tc-ta{font-size:12px;color:var(--tamil);opacity:.85;font-weight:500}
+  .timing-card .tc-time{font-size:20px;font-weight:800;margin-top:8px;font-family:'JetBrains Mono',monospace}
 
   /* INAUSPICIOUS BLOCK */
-  .inaus-block{padding:14px 16px;border-radius:14px;margin-bottom:10px}
-  .inaus-block .ib-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
-  .inaus-block .ib-left{display:flex;align-items:center;gap:10px}
-  .inaus-block .ib-icon{width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-  .inaus-block .ib-name{font-size:13px;font-weight:700}
-  .inaus-block .ib-desc{font-size:10px;color:var(--text-muted)}
-  .inaus-block .ib-time{font-size:14px;font-weight:800;font-family:'JetBrains Mono',monospace}
+  .inaus-block{padding:16px 18px;border-radius:16px;margin-bottom:12px}
+  .inaus-block .ib-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .inaus-block .ib-left{display:flex;align-items:center;gap:12px}
+  .inaus-block .ib-icon{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+  .inaus-block .ib-name{font-size:16px;font-weight:700}
+  .inaus-block .ib-desc{font-size:13px;color:var(--tamil);font-weight:500}
+  .inaus-block .ib-time{font-size:16px;font-weight:800;font-family:'JetBrains Mono',monospace}
 
   /* MONTH EVENT LIST BUTTON */
-  .month-ev-btn{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;
-    background:rgba(245,230,211,0.02);border-radius:12px;border:1px solid var(--card-border);
-    width:100%;font-family:inherit;transition:background .15s;text-align:left;margin-bottom:6px}
+  .month-ev-btn{display:flex;align-items:center;justify-content:space-between;padding:14px 14px;
+    background:rgba(245,230,211,0.02);border-radius:14px;border:1px solid var(--card-border);
+    width:100%;font-family:inherit;transition:background .15s;text-align:left;margin-bottom:8px}
   .month-ev-btn:hover{background:rgba(245,230,211,0.04)}
-  .month-ev-btn .mev-left{display:flex;align-items:center;gap:10px}
-  .month-ev-btn .mev-icon{font-size:18px}
-  .month-ev-btn .mev-name{font-size:13px;font-weight:700}
-  .month-ev-btn .mev-ta{font-size:10px;color:var(--text-muted)}
-  .month-ev-btn .mev-day{font-size:14px;font-weight:800;color:var(--text-secondary);
-    background:rgba(245,230,211,0.05);border-radius:8px;padding:4px 10px}
+  .month-ev-btn .mev-left{display:flex;align-items:center;gap:12px}
+  .month-ev-btn .mev-icon{font-size:22px}
+  .month-ev-btn .mev-name{font-size:16px;font-weight:700}
+  .month-ev-btn .mev-ta{font-size:13px;color:var(--tamil);font-weight:500}
+  .month-ev-btn .mev-day{font-size:17px;font-weight:800;color:var(--text-secondary);
+    background:rgba(245,230,211,0.05);border-radius:10px;padding:6px 14px}
 
   /* WORSHIP CARD */
-  .worship-card{padding:16px;border-radius:14px;text-align:center}
-  .worship-card .wc-deity{font-size:18px;font-weight:800}
-  .worship-card .wc-tip{font-size:12px;color:var(--text-secondary);margin-top:8px;line-height:1.6}
+  .worship-card{padding:20px;border-radius:16px;text-align:center}
+  .worship-card .wc-deity{font-size:22px;font-weight:800}
+  .worship-card .wc-tip{font-size:15px;color:var(--tamil);margin-top:10px;line-height:1.6}
 
   /* REFERENCE PILLS */
-  .ref-pills{display:flex;flex-wrap:wrap;gap:6px}
-  .ref-pill{display:flex;align-items:center;gap:4px;padding:4px 10px;
-    background:rgba(245,230,211,0.03);border-radius:8px;font-size:10px;color:var(--text-secondary)}
+  .ref-pills{display:flex;flex-wrap:wrap;gap:8px}
+  .ref-pill{display:flex;align-items:center;gap:6px;padding:8px 16px;
+    background:rgba(232,117,26,0.1);border:1px solid rgba(232,117,26,0.18);border-radius:12px;font-size:14px;color:var(--tamil-bright);font-weight:600}
 
-  .note-box{padding:12px 16px;background:var(--card);border-radius:16px;border:1px solid var(--card-border);
-    font-size:10px;color:var(--text-muted);line-height:1.7;margin-bottom:14px}
+  .note-box{padding:14px 18px;background:var(--card);border-radius:16px;border:1px solid var(--card-border);
+    font-size:13px;color:var(--text-muted);line-height:1.7;margin-bottom:14px}
   .note-box strong{font-weight:700;color:var(--text-secondary)}
 
   .animated{animation:slideUp .3s ease}
+
+  /* MOBILE BOOST - extra size on small screens */
+  @media (max-width: 480px) {
+    .container{padding:0 8px 80px}
+    .header .year-label{font-size:22px}
+    .header .month-sub{font-size:19px}
+    .month-nav .month-title{font-size:30px}
+    .month-nav .month-year{font-size:17px}
+    .nav-btn{padding:14px 22px;font-size:20px}
+    .tab-btn{font-size:16px;padding:18px 8px}
+    .tab-btn .icon{font-size:24px;margin-bottom:5px}
+    .sel-bar .eng-date span.num{font-size:38px}
+    .sel-bar .eng-date span.mon{font-size:18px}
+    .sel-bar .tam-date .main{font-size:20px}
+    .sel-bar .tam-date .sub{font-size:15px}
+    .sel-bar .moon{font-size:36px}
+    .sel-bar .arrow{font-size:24px;padding:8px 12px}
+    .day-headers .dh .ta{font-size:15px}
+    .day-headers .dh .en{font-size:12px}
+    .day-cell .num{font-size:18px}
+    .day-cell .tnum{font-size:12px}
+    .day-cell .badge{font-size:10px}
+    .section-head .icon{font-size:24px}
+    .section-head .title{font-size:18px}
+    .section-head .title-ta{font-size:14px}
+    .info-row .icon-box{width:44px;height:44px;font-size:22px}
+    .info-row .label{font-size:16px}
+    .info-row .label-ta{font-size:14px}
+    .info-row .val{font-size:17px}
+    .info-row .val-ta{font-size:14px}
+    .event-pill .ev-icon{width:54px;height:54px;font-size:28px}
+    .event-pill .ev-name{font-size:18px}
+    .event-pill .ev-ta{font-size:15px}
+    .timing-card .tc-icon{font-size:32px}
+    .timing-card .tc-label{font-size:14px}
+    .timing-card .tc-ta{font-size:13px}
+    .timing-card .tc-time{font-size:22px}
+    .inaus-block .ib-icon{width:48px;height:48px;font-size:24px}
+    .inaus-block .ib-name{font-size:17px}
+    .inaus-block .ib-desc{font-size:14px}
+    .inaus-block .ib-time{font-size:17px}
+    .month-ev-btn .mev-icon{font-size:24px}
+    .month-ev-btn .mev-name{font-size:17px}
+    .month-ev-btn .mev-ta{font-size:14px}
+    .month-ev-btn .mev-day{font-size:18px}
+    .worship-card .wc-deity{font-size:24px}
+    .worship-card .wc-tip{font-size:16px}
+    .ref-pill{font-size:15px;padding:10px 18px}
+    .note-box{font-size:14px}
+    .today-btn{font-size:15px;padding:10px 24px}
+  }
 </style>
 </head>
 <body>
@@ -468,6 +526,21 @@ function render() {
           </button>`).join('')}
         </div></div>`;
     }
+
+    // Quick reference (calendar view)
+    html += `<div class="section">
+      <div class="section-head"><span class="icon">📖</span><div><div class="title">Quick Reference</div><div class="title-ta">குறிப்பு அட்டவணை</div></div></div>
+      <div class="section-body">
+        <div class="ref-pills">
+          <div class="ref-pill">🌕 Pournami</div>
+          <div class="ref-pill">🌑 Amavasai</div>
+          <div class="ref-pill">🙏 Ekadasi</div>
+          <div class="ref-pill">🔱 Pradosham</div>
+          <div class="ref-pill">🐘 Chaturthi</div>
+          <div class="ref-pill">🗡️ Sashti</div>
+        </div>
+      </div></div>`;
+
     html += '</div>';
   }
 
@@ -542,7 +615,7 @@ function render() {
             <div class="tc-time" style="color:#EF5350">${sun.s} PM</div>
           </div>
         </div>
-        <div style="font-size:9px;color:var(--text-muted);text-align:center;margin-top:8px">📍 Based on Chennai, Tamil Nadu</div>
+        <div style="font-size:13px;color:var(--text-muted);text-align:center;margin-top:10px">📍 Based on Chennai, Tamil Nadu</div>
       </div></div>`;
 
     // Auspicious
@@ -551,10 +624,10 @@ function render() {
       <div class="section-body">
         <div style="padding:16px;text-align:center;border-radius:14px;background:rgba(91,140,62,0.08);border:1px solid rgba(91,140,62,0.15)">
           <div style="font-size:24px">✨</div>
-          <div style="font-size:12px;color:#8BC34A;font-weight:700;margin-top:6px">Abhijit Muhurtam</div>
-          <div style="font-size:10px;color:var(--text-muted)">அபிஜித் முஹூர்த்தம்</div>
-          <div style="font-size:22px;font-weight:800;color:#8BC34A;margin-top:8px;font-family:'JetBrains Mono',monospace">11:45 AM – 12:33 PM</div>
-          <div style="font-size:10px;color:var(--text-muted);margin-top:6px">Most auspicious time — suitable for all good beginnings</div>
+          <div style="font-size:16px;color:#8BC34A;font-weight:700;margin-top:6px">Abhijit Muhurtam</div>
+          <div style="font-size:14px;color:var(--tamil)">அபிஜித் முஹூர்த்தம்</div>
+          <div style="font-size:26px;font-weight:800;color:#8BC34A;margin-top:10px;font-family:'JetBrains Mono',monospace">11:45 AM – 12:33 PM</div>
+          <div style="font-size:14px;color:var(--text-muted);margin-top:8px">Most auspicious time — suitable for all good beginnings</div>
         </div>
       </div></div>`;
 
@@ -580,7 +653,7 @@ function render() {
         <div class="section-body">
           <div class="worship-card" style="background:${worship.c}0C;border:1px solid ${worship.c}18">
             <div class="wc-deity" style="color:${worship.c}">${worship.d}</div>
-            <div class="wc-tip">${worship.tip}</div>
+            <div class="wc-tip" style="color:var(--tamil)">${worship.tip}</div>
           </div>
         </div></div>`;
     }
